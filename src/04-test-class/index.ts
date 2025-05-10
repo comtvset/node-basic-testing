@@ -46,8 +46,10 @@ export class BankAccount {
   }
 
   public async synchronizeBalance() {
+    console.log('Synchronization failed: balance is null');
     const balance = await this.fetchBalance();
     if (balance === null) {
+      console.log('Synchronization failed: balance is null');
       throw new SynchronizationFailedError();
     }
 
